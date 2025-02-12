@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header class="clearfix">
+      <h1>Rechnung</h1>
+      <div id="company" class="clearfix">
+        <div>Normcut</div>
+        <div>Strasse X,<br /> 12343 Berlin</div>
+        <div>(030) 111-1111</div>
+        <div><a href="mailto:normcut@example.de">company@example.com</a><br></div>
+      </div>
+      <div id="project">
+        <div><span>Firma:</span>  {{user.customer.unternehmen}}</div>
+        <div><span>Kunde:</span>  {{user.first_name}} {{user.last_name}}</div>
+        <div><span>Address:</span>  {{user.customer.address}} {{user.customer.city}}, {{user.customer.postalCode}}</div>
+        <div><span>Email:</span>  {{user.email}} </div>
+        <div><span>Datum:</span>  {{date}} </div>
+        <div><span>Frist:</span>  {{frist}}</div>
+      </div>
+    </header>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Produkt</th>
+          <th>Einzelpreis</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+  
+      {% for p in products %}
+      {% if p %}
+
+      <tr>
+        <td> {{p.material.name}}</td>
+        <td>{{p.get_price}}</td>
+        <td>{{p.description}}</td>
+      </tr>
+      {%else%}
+      <br><br><br>
+      <h1>no products</h1>
+      {% endif %}
+      {% endfor %}
+    </table>
+  </div>
+<br><br><br>
+     <p>Bitte ueberweisen sie innerhalb 7 Tage  die Summe: {{totals}} Euro auf untenstehende Bankverbindung</p>
+<br></br>
+<br></br>
+
+<p>IBAN: xxx </p>
+<p>Konto-Nr.: xxx </p>
+<p>BLZ: xxx </p>
+<p>Bank: xxx </p>
+<p>Kontoinhaber: xxx </p>
+</p>
+</body>
+</html>

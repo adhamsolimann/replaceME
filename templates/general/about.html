@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+
+<div class="about-section">
+    <h1>REPLACE:ME - NORMCUT</h1>
+    <p>Ein Team aus jungen Entwicklern, die deine Probleme lösen!</p>
+    <p>Durch unsere innovative Ersetzbarkeitsberechnung werden dir nachhaltige Produkte zu fairen Preisen angezeigt und vorgeschlagen!</p>
+  </div>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        {% load static %}<img src="{% static 'css/app/media/NormColorBlue.png' %}" class="d-block w-100" alt="..." style="height:350px">        
+      <div class="carousel-caption d-none d-md-block" style=" color: white;">
+        <h4>Felix Nahrstedt</h4>
+          <p class="title">Projektleiter & Entwickler</p>
+          <p>Good Project Managers always finish their Proj</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+        {% load static %}<img src="{% static 'css/app/media/NormColor.png' %}" class="d-block w-100" alt="..." style="height:350px">        
+        <div class="carousel-caption d-none d-md-block" style="color: white;">
+            <h4>Nicolas von der Ahe</h4>
+            <h5 class="title">Backend & Datenbanken Entwickler</h5>
+            <p>A person who fixed a problem that you don't know you have, in a way you don't understand.</p>  
+          </div>
+      </div>
+    <div class="carousel-item">
+        {% load static %}<img src="{% static 'css/app/media/NormColorBlue.png' %}" class="d-block w-100" alt="..." style="height:350px">        
+        <div class="carousel-caption d-none d-md-block" style="color: white;">
+            <h4>Adham Mohamed</h4>
+            <p class="title">Requirements Engineer & Entwickler</p>
+            <p>I write code like it's nobody's business.</p>
+          </div>
+      </div>
+      <div class="carousel-item">
+        {% load static %}<img src="{% static 'css/app/media/NormColor.png' %}" class="d-block w-100" alt="..." style="height:350px">        
+        <div class="carousel-caption d-none d-md-block" style="color: white;">
+            <h4>Rohan Ramphul</h4>
+            <p class="title">Leitender Entwickler</p>
+            <p>I have a joke on programming but it only works on my computer.</p>
+          </div>
+      </div>
+      <div class="carousel-item">
+        {% load static %}<img src="{% static 'css/app/media/NormColorBlue.png' %}" class="d-block w-100" alt="..." style="height:350px">        
+        <div class="carousel-caption d-none d-md-block" style="color: white;">
+            <h4>Lina Stockmann</h4>
+            <p class="title">Design und Entwickler</p>
+            <p>It looks OK on my screen...</p>
+          </div>
+      </div>
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
+
+</div>
+<div style="margin-bottom: 200px;"></div>
+{% endblock %}

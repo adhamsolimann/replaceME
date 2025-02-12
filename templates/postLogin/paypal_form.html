@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Ein Konto anlegen{% endblock %}
+
+{% block content %}
+    <h1>Hier soll die Paypal Verknüpfung hin</h1>
+        <div>
+          <label for="paypal">Geldsumme:</label>
+          <input placeholder="Der Preis in €" style="border: 1px solid black;" step="0.01" type="number" id="paypal" name="paypal" min="0">
+</br>
+          <span style="float:left;">        
+              <button type="button" onclick="myFunction()">Paypal</button>
+          </span>
+        </div>
+        
+        <script>
+        function myFunction() { 
+          alert("paypal hier implementieren")
+        }
+        </script>
+
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+          {{ form.render}}
+          <input type="submit" value="Save"/>
+        </form>
+{% endblock %}

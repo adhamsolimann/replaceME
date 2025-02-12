@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+    <link href="{% static "css/about.css" %}" rel="stylesheet">
+</head>
+<body>
+    <nav id="header" class="navbar navbar-light bg-light">
+        {% load static %}  <a href="{% url "index" %}"><img src="{% static 'css/app/media/NormcutLogo.png' %}" alt="NORMCUT" width="100"/></a>
+        {% if request.user.is_authenticated %}
+        {% endif %}
+        <span class="about">
+            <a href="{% url "about" %}">Team</a>
+        </span>
+        <span class="profile">
+            {% if request.user.is_authenticated %}
+            <a href="{% url "profil" %}">Mein Konto</a>
+            {% endif %}
+        </span>
+        <span class="user">
+            {% if request.user.is_authenticated %}
+                <a href="{% url "preferences" %}">Einkaufen</a></h5>
+        {% endif %}
+        </span>
+        <span class="user">
+        {% if request.user.is_authenticated %}
+            {{ request.user.first_name }}, <a href="{% url "logout" %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Log-in</a>
+        {% endif %}
+        </span>
+        <span>            
+            {% if request.user.is_authenticated %}
+            </h5><a href="{% url "warenkorb" %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart distance" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg></h5>
+                </a>
+            {% endif %}
+        </svg>
+    </span>
+      </nav>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">
+                    {{ message|safe }}
+                    <a href="#" class="close">×</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+        <div class="wrapper" >
+
+    <div id="content">
+        {% block content %}
+        {% if user.is_authenticated %}
+        <h2 class="welcome">Hallo, {{ user.username }}! </h2>
+        {% else %}
+        <div style="margin:50px 0 200px;">
+            <h1>Willkommen zu Replace:ME</h1>
+        </div>
+        {% endif %}
+        <div  style="background-color: #ddf1da; text-align: center; padding-bottom: 40px; border-radius: 40px; padding: 0 20px 0 20px;">
+
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+            <h2 class="carousel-text">Passgenaue Lösung, schnelle Lieferung und der Preis stimmt auch!</h2>
+            <img src="https://www.iconsdb.com/icons/preview/green/delivery-xxl.png" width=" 100px" height="100px">
+            </div>
+            <div class="carousel-item">
+                <h2 class="carousel-text">Kaufen Sie Ihre Materialien passgenau und umweltfreundlich.</h2>
+                <img src="https://www.un.org/sites/un2.un.org/files/climate-action-icons-polluting-industries.svg" width=" 100px" height="100px">
+            </div>
+            {% if user.is_authenticated %}
+            <div class="carousel-item">
+                <h2 class="carousel-text">Bequem mit nur wenigen Clicks aus dem Internet <a href="preferences">bestellen.</a></h2>
+                <img src="https://www.iconsdb.com/icons/preview/green/approval-xxl.png" height="100px" width="100px">
+            {% else %}
+            <div class="carousel-item">
+                <h2 class="carousel-text">Bequem mit nur wenigen Clicks aus dem Internet <a href="register">bestellen.</a></h2>
+                <img src="https://www.iconsdb.com/icons/preview/green/approval-xxl.png" height="100px" width="100px">
+            {% endif%}
+        </div>
+        </div>
+        </div>
+        </div>
+        <div style="margin: 400px 300px 100px 300px; border-radius: 20px; background-color:#ddf1da;">
+
+            <h4 style="margin-top: 3em; margin-bottom: 4em; padding-top: 2em;">Sie haben Wünsche oder Fragen? Dann schreiben Sie uns gerne an.</h4>
+   
+
+          <form method="post">
+            {% csrf_token %}
+
+              <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <div class="form-actions">
+              <input type="submit" value="Abschicken"/>
+            </div>
+         </form>
+         </div>
+     </div>
+
+        
+        {% endblock %}
+    <div class="d-flex justify-content-lg-center"></div>
+    <footer style="padding-top: 5px; margin-top: 40px;">
+        <div class="container">
+            <p class="copyright-text">Copyrights &copy; 2022 Alle Rechte vorbehalten.   
+                <a href="{% url "about" %}">ReplaceME</a>.</p>
+        </div>
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

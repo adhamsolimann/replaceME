@@ -1,0 +1,262 @@
+@import url(http://fonts.googleapis.com/css?family=Muli);
+
+body {
+    margin:0;
+    padding:0;
+    color:#005274;
+    font-family:helvetica, sans-serif;
+    text-align: center;
+}
+
+p {
+    line-height: 1.8;
+    font-family: 'Muli', sans-serif;
+    font-weight: normal;
+}
+
+a {
+    color:#049c04;
+    text-decoration:none;
+}
+
+a:hover {
+    color:#049c04;
+}
+
+h1, h2, h3, h4, h5 , h6 { 
+    font-family: 'Muli', sans-serif; font-weight:normal;}
+
+h1 {
+   
+    padding:10px 0 10px 0;
+    margin:10px 0 20px 0;
+    text-align: center;
+}
+
+h2 {
+    margin:30px 0 20px;
+    text-align: center;
+}
+h3{
+    margin:30px 0 20px;
+    text-align: center;
+}
+h4{
+    margin:30px 0 20px;
+    text-align: center;
+}
+ol {
+    line-height:1.5;
+}
+
+#header {
+    padding:10px 100px;
+    font-size:14px;
+    background:white;
+    color:#005274;
+    border-bottom:4px solid #049c04;
+    overflow:auto;
+}
+
+#header .logo {
+    font-family: 'Muli', sans-serif;
+    float:left;
+    color:#049c04;
+    font-size:20px;
+    margin-right:10%;
+}
+
+#header ul.menu {
+    list-style:none;
+    float:left;
+    margin:0;
+    padding:0;
+}
+#header ul.menu li {
+    float:left;
+    padding:4px 10px;
+}
+
+#header ul.menu li.selected a, #header ul.menu li.selected a:hover {
+    color:#049c04;
+    font-weight:bold;
+}
+
+#header a {
+    color:#049c04;
+}
+#header a:hover {
+    color:#005274;
+}
+
+#header .user {
+    float:right;
+    padding-top:4px;
+}
+
+
+/* forms */
+form {
+    overflow:auto;
+    text-align: center;
+    margin: 0 auto;
+}
+
+form p {
+    width:50%;
+    overflow:auto;
+    text-align: center;
+    margin: 0 auto;
+
+}
+
+label {
+    float:left;
+    font-family: 'Muli', sans-serif;
+    clear:both;
+    color:#005071;
+    margin-bottom:4px;
+}
+input, textarea {
+    clear:both;
+    font-weight:normal;
+    float:center;
+    margin:0 0 10px;
+    background:white;
+    border:1px;
+    box-sizing: border-box; 
+    padding:6px 20px;
+    font-size:14px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #005071;
+    width: 100%;
+
+}
+
+select {
+    font-family: 'Muli', sans-serif;
+    width: 40%;
+    height: 40px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+input[type=text], input[type=email] input[type=select], input[type=number]  {
+ width: 100%;
+ padding: 12px 20px;
+ margin: 8px 0;
+ display: inline-block;
+}
+
+
+
+
+
+.inline-fields label {
+    display: inline-block;
+}
+
+
+}
+.errorlist li {
+    border: 1px solid red;
+    color: red;
+    background: rgba(255, 0, 0, 0.15);
+    list-style-position: inside;
+    display: block;
+    font-size: 1.2em;
+    margin: 0 0 3px;
+    padding: 4px 5px;
+    text-align: center;    
+    border-radius: 3px;
+}
+
+input[type=submit], a.button {
+    font-weight:bold;
+    background:#049c04;
+    color:white;
+    border-radius: 10px;
+    border-color:#049c04;
+    padding:10px 20px;
+    font-size:14px;
+    text-transform:uppercase;
+    margin: 0 auto;
+    width: auto;
+    margin-bottom: 20px;
+
+}
+.errorlist {
+    color:#cc0033;
+    clear:both;
+    padding-left:10px;
+}
+.helptext {
+    margin:0 0 20px 0;
+    color:#aaa;
+    clear:both;
+    float:left;
+    font-size:13px;
+}
+/* messages */
+ul.messages {
+    margin:10px 100px;
+    padding:0;
+    list-style-type:
+    none;
+}
+ul.messages li.success,
+ul.messages li.warning,
+ul.messages li.error,
+ul.messages li.info {
+    margin:0;
+    padding:14px 20px;
+    list-style:none;
+    color:white;
+}
+
+ul.messages li.success { background:#81ce81; }
+ul.messages li.success a { color:#0ac33e; }
+
+ul.messages li.error { background:#a30029; color:#e9828e; }
+ul.messages li.error a { color:#e9828e; }
+
+ul.messages li.info { background:#faffae; color:#696b4e; }
+ul.messages li.info a { color:#1586de; }
+
+ul.messages li.warning { background:#de9404; }
+ul.messages li.warning a { color:#f49000; }
+
+ul.messages li a.close {
+    margin:0;
+    float:right;
+    opacity:1;
+    border:0;
+    box-shadow:none;
+    text-shadow:none;
+}
+
+
+
+.contact-form {
+    padding:30px;
+    background: #a3cfe2f3;
+    width:50%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.welcome {
+    margin: 50px;
+    padding: 50px;
+}
+
+.carousel-text{
+    margin: 3em;}
+}
+
+
+#eingabe {
+    padding-top: 50px;
+    margin: 20px;
+}

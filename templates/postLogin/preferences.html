@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Ihre Präferenzen{% endblock %}
+
+{% block content %}
+
+
+    <h1>Ihre Präferenzen</h1>
+    <p>Alle Maße sind in cm anzugeben</p>
+    <form id="pref_form"action="." method="post">
+        {{ form.as_p }}
+        {{ usecase_form.as_p }}
+        <br>
+        <p>Nicht der passende Usecase vorhanden? Legen sie gerne einen neuen an:<a href="{% url "usecase" %}"> Usecase anlegen</a></p>
+        <br>
+        {% csrf_token %}
+
+        <script type="text/javascript">
+
+
+            function check()
+            {
+                var form_validity = document.forms['pref_form'].reportValidity()
+                if (!form_validity){
+                    document.getElementById('spinner').style.display = 'none';
+                }
+                else {
+                    document.getElementById('spinner').style.display = 'block';                    
+                }
+            }
+
+        </script>
+
+        <input type="submit" value="Suchen" onclick="check()">
+        <div class="d-flex justify-content-center">
+            <div id="spinner" class="spinner-grow text-success" role="status" style="display: none;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+

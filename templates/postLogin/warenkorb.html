@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <link href="{% static 'css/base.css' %}" rel="stylesheet">
+  <link href="{% static 'css/warenkorb.css' %}" rel="stylesheet">
+</head>
+<br><br><br><br>
+
+<style type="text/css">
+  th {
+    text-align: center;
+  }
+</style>
+
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 style="text-align:center;" class="panel-title">Warenkorb</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Produkt</th>
+          <th>Preis</th>
+          <th>Details</th>    
+          <th> Stückzahl </th>
+          <th>Produkt entfernen</th>
+
+        </tr>
+      </thead>
+      {% for p in products %}
+      {% if p %}
+
+      <tr>
+        <td> {{p.material.name}}</td>
+        <td>{{p.get_price}}</td>
+        <td>{{p.description}}</td>
+        <td> {{p.inStock}}</td>
+        <td><a class="btn btn-danger btn-xs" href="{% url 'warenkorbRemove' p.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+
+      </tr>
+      {%else%}
+      <br><br><br>
+      <h1>no products</h1>
+      {% endif %}
+      {% endfor %}
+    </table>
+  </div>
+</div>
+<br><br><br>
+<div style="text-align: center;">
+  <button class="button button2">Summe: {{total}} €</button>
+<a href="/payment"><button class="button" ><span>Kaufen (Vorkasse) </span></button></a>
+</div>
+
+
+<br><br><br><br><br>
+
+<h1>Express Checkout</h1>
+<br>
+  <div align="center">
+     <div id="paypal-button-container"></div>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+
+
+      <script >
+        // Render the PayPal button into #paypal-button-container
+        var total=
+        paypal.Buttons({
+
+             style: {
+                color:  'blue',
+                shape:  'rect',
+                label:  'pay',
+                height: 40
+            },
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: 1.01
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+
+                    alert('Transaktion erfolgreich!');
+                });
+            }
+
+
+        }).render('#paypal-button-container');
+    </script>
+  </div>
+
+{% endblock content %}

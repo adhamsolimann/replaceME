@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Bestellung{% endblock %}
+
+{% block content %}
+{% load static %}
+<link href="{% static 'css/table.css' %}" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+  <div class="container-fluid">
+
+    <h1>Bestellung {{order.id}}</h1>
+      <table class="table table-borderless table-hover">
+          <tr>
+            <th>Produkt</th>
+            <th>Stückzahl</th>
+            <th>Preis</th>
+            
+          </tr>
+            {% for orderDetail in orderDetails %}
+
+          <tr>
+            <td>{{orderDetail.item}}</td>
+            <td>{{orderDetail.quantity}}</td>
+            <td>{{orderDetail.price}}€</td>
+          </tr>
+      
+            {% endfor %}  
+          </table>
+      
+</div>
+{% endblock %}
+
+</body>
+</html>

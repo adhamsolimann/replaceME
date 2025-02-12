@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Suchergebnis{% endblock %}
+
+{% block content %}
+{% load static %}
+<link href="{% static 'css/table.css' %}" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+  <div class="container-fluid">
+
+    <h1>Folgende Produkte sind im gewünschten Material verfügbar</h1>
+      <table class="table table-borderless table-hover">
+          <tr>
+            <th>Height</th>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Description</th>  
+            <th>InStock</th> 
+            <th>Material</th>
+            <th>Price</th> 
+            <th>  </th> 
+          </tr>
+            {% for item in filtered_items %}
+
+          <tr>
+            <td>{{item.height}}</td>
+            <td>{{item.width}}</td>
+            <td>{{item.depth}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.inStock}}</td>
+            <td>{{item.material}}</td>
+            <td>{{item.get_price}}€</td>
+            <td><form action="{% url 'warenkorbAdd' item.id  %}">
+                              <input type="hidden" name="prod_id" value="{{item.id}}" id="product_ids">
+                              <button type="submit" class="btn btn-sm btn-dark">In den Warenkorb</button>
+                            </form></td>
+          </tr>
+      
+            {% endfor %}  
+          </table>
+      
+  
+    <h1>Folgende alternative Produkte sind verfügbar</h1>
+      <table class="table table-borderless table-hover">
+          <tr>
+            <th>Height</th>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Description</th>  
+            <th>InStock</th> 
+            <th>Material</th>
+            <th>Price</th> 
+            <th>  </th> 
+          </tr>
+            {% for item in alt_options %}
+
+          <tr>
+            <td>{{item.height}}</td>
+            <td>{{item.width}}</td>
+            <td>{{item.depth}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.inStock}}</td>
+            <td>{{item.material}}</td>
+            <td>{{item.get_price}}€</td>
+            <td><form action="{% url 'warenkorbAdd' item.id  %}">
+                              <input type="hidden" name="prod_id" value="{{item.id}}" id="product_ids">
+                              <button type="submit" class="btn btn-sm btn-dark">In den Warenkorb</button>
+                            </form></td>
+          </tr>
+            {% endfor %}
+                
+          </table>
+    </div>
+  <form action='.' method='GET'>
+    <button type='submit' class="btn btn-dark">Zurücksetzen</button>
+  </form>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Ein Konto anlegen{% endblock %}
+
+{% block content %}
+    <h1>Ein Konto anlegen</h1>
+    <p>Einfach das Formular ausfüllen, dann sind Sie bei  uns.</p>
+    <form action="." method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Mein Konto erstellen"></p>
+    </form>
+{% endblock %}

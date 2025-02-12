@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style media="screen">
+  .confirmation{
+  max-width:300px;
+  display:block;
+  margin: 0 auto;
+  text-align: center;
+      position: relative;
+    top: 40%;
+    transform: perspective(1px) translateY(10%)
+}
+.confirmation img{
+  max-width:70px;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-view-orders{
+  display: block;
+  border:1px solid #2d951f;
+  width:150px;
+  margin: 0 auto;
+  margin-top: 60px;
+  padding: 10px;
+  color:#fff;
+  background-color:#2d951f;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+h2{
+  color:#2d951f;
+    margin-top: 25px;
+
+}
+a{
+  text-decoration: none;
+}
+</style>
+<div class="confirmation" style="top:auto;">
+   <img  src="https://www.iconsdb.com/icons/preview/green/checkmark-xxl.png" class="center" alt="" />
+  <h2>Bestellung eingegangen!</h2>
+  <p>Sobald Ihre Zahlung eingegangen ist, wird der Versand veranlasst.</p>
+
+    <p>Vielen Dank!</p>
+
+  <a style="text-decoration:none; border-radius: 10px;" href="{% url 'download_view' %}" class="btn-view-orders">Rechnung herunterladen</a>
+  <a style="text-decoration:none;" href="/preferences">Weitere Produkte bestellen</a>
+</div>
+<br><br><br><br>
+<br><br><br><br>
+{% endblock content %}

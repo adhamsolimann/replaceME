@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Ihr Profil ändern{% endblock %}
+
+{% block content %}
+    <h1>Hier kann das Profil geändert werden</h1>
+    <form action="." method="post">
+        {{ user_form.as_p }}
+        {{ customer_form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="Speichern"/>
+    </form>
+    <p>Hier finden sie ihre Bestellungen: <a href="{% url "orders" %}">Bestellübersicht</a></p>
+{% endblock %}
